@@ -14,13 +14,39 @@
 </head>
 <body>
     <header class="header">
+        <nav class="header__nav">
+            <ul class="menu menu--principal">
+                <li class="menu__item">
+                    <a class="menu__link active" href="#home">
+                        <span class="menu__text">Home</span>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#projetos">
+                        <span class="menu__text">Projetos</span>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#about">
+                        <span class="menu__text">About</span>
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#Contato">
+                        <span class="menu__text">Contato</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
         <div class="header__brand">
             <img class="brand__logo" src="assets/img/logo.png" alt="Logo AC">
         </div>
-        <i id="toggleTheme" class="bi bi-triangle"></i>
+        <div class="header__toggle">
+            <i id="toggleTheme" class="bi bi-triangle"></i>
+        </div>
     </header>
     <h1 style="background: black; color: white; border: 10px solid black; padding:20px">Adriano Cruz</h1>
-    <nav>
+    <nav class="nav--mobile">
         <ul class="menu menu--mobile">
             <li class="menu__item">
                 <a class="menu__link active" href="#home">
