@@ -63,12 +63,14 @@
                     </a>
                 </li>
             </ul>
-            <button class="btn btn--primary" data-toggle="tooltip" data-placement="top">
-                <span>
-                    Ver projetos
-                </span>
-                <i class="bi bi-arrow-down-right"></i>
-            </button>
+            <a href="#projetos">
+                <button class="btn btn--primary" data-toggle="tooltip" data-placement="top">
+                    <span>
+                        Ver projetos
+                    </span>
+                    <i class="bi bi-arrow-down-right"></i>
+                </button>
+            </a>
         </div>
         <div class="main__content-video">
             <iframe
@@ -101,33 +103,123 @@
             </li> -->
         </ul>
     </section>
-    <section class="projects">
+    <section id="projetos" class="projects">
         <h2>Projetos</h2>
-        <div class="projects__card">
-            <img class="card__cover" src="assets/img/proj/proj_mock_first.png" alt="Screen css developer study">
-            <h3 class="card__title">
-               Projeto de estudo de <b>CSS</b>
-            </h3>
-            <p class="card__description">
-                Um projeto de uma Landing Page com algumas tecnicas simples de CSS mais com um formato futurista...
-            </p>
-            <ul class="card__list">
-                <li class="card__item">Identidade visual</li>
-                <li class="card__item">Perfeita para página de vendas</li>
-                <li class="card__item">Criada a partir do design</li>
-            </ul>
-            <div class="card__buttons">
+        <div class="projects__container">
+            <div class="projects__card">
+                <img class="card__cover" src="assets/img/proj/proj_mock_first.png" alt="Screen css developer study">
+                <div class="card__body">
+                    <h3 class="card__title">
+                        Projeto de estudo de <b>CSS</b>
+                     </h3>
+                     <p class="card__description">
+                         Um projeto de uma Landing Page com algumas tecnicas simples de CSS mais com um formato futurista...
+                     </p>
+                     <ul class="card__list">
+                         <li class="card__item">Identidade visual</li>
+                         <li class="card__item">Perfeita para página de vendas</li>
+                         <li class="card__item">Criada a partir do design</li>
+                     </ul>
+                     <div class="card__buttons">
+                         <button class="btn btn--primary">
+                             <!-- href="https://adrianocruzweb.github.io/trilha-css-desafio-01/" -->
+                             <span>Prévia</span>
+                             <i class="bi bi-arrow-up-right"></i>
+                         </button>
+                         <button class="btn">
+                             <!-- href="https://github.com/adrianocruzweb/trilha-css-desafio-01" -->
+                             <span>Repositório</span>
+                         </button>
+                     </div>
+                </div>
+            </div>
+            <div class="projects__card card--reverse">
+                <img class="card__cover" src="assets/img/proj/proj_mock_sec.png" alt="Screen site adriana perita">
+                <div class="card__body">
+                    <h3 class="card__title">
+                        Site Cliente <b>Perícia</b>
+                     </h3>
+                     <p class="card__description">
+                        Site Institucional adrianaperita.com.br
+                     </p>
+                     <ul class="card__list">
+                         <li class="card__item">Estrutura padão</li>
+                         <li class="card__item">Formulário de Contato</li>
+                         <li class="card__item">Marca pessoal</li>
+                     </ul>
+                     <div class="card__buttons">
+                         <button class="btn btn--primary">
+                             <!-- href="https://adrianocruzweb.github.io/trilha-css-desafio-01/" -->
+                             <span>Prévia</span>
+                             <i class="bi bi-arrow-up-right"></i>
+                         </button>
+                        <!--  <button class="btn"> -->
+                             <!-- href="https://github.com/adrianocruzweb/trilha-css-desafio-01" -->
+                         <!--     <span>Repositório</span>
+                         </button> -->
+                     </div>
+                </div>
+            </div>
+            <div class="projects__card">
+                <img class="card__cover" src="assets/img/proj/proj_mock_fourth.png" alt="Screen site de aulas de inglês">
+                <div class="card__body">
+                    <h3 class="card__title">
+                        Site Cliente <b>Inglês</b>
+                     </h3>
+                     <p class="card__description">
+                         Site desenvolvido em framework CakePHP totalemnte dinâmico com score e ranking e um método inovador de aprendizado de inglês... voceaprendeagora.com
+                     </p>
+                     <ul class="card__list">
+                         <li class="card__item">Area Administrativa</li>
+                         <li class="card__item">Sistema de questionários</li>
+                         <li class="card__item">Avaliações e score</li>
+                     </ul>
+                     <div class="card__buttons">
+                         <button class="btn btn--primary">
+                             <!-- href="https://adrianocruzweb.github.io/trilha-css-desafio-01/" -->
+                             <span>Prévia</span>
+                             <i class="bi bi-arrow-up-right"></i>
+                         </button>
+                         <!-- <button class="btn"> -->
+                             <!-- href="https://github.com/adrianocruzweb/trilha-css-desafio-01" -->
+                            <!--  <span>Repositório</span>
+                         </button> -->
+                     </div>
+                </div>
+            </div>
+            <div class="projects__card card--reverse">
+                <img class="card__cover" src="assets/img/proj/proj_mock_third.png" alt="Screen css developer study">
+                <div class="card__body">
+                    <h3 class="card__title">
+                        Site Cliente <b>Seguros</b>
+                     </h3>
+                     <p class="card__description">
+                        Site Institucional adequiseguros.com.br
+                     </p>
+                     <ul class="card__list">
+                         <li class="card__item">Estrutura padão</li>
+                         <li class="card__item">Formulário de Contato</li>
+                         <li class="card__item">Marca pessoal</li>
+                     </ul>
+                     <div class="card__buttons">
+                         <button class="btn btn--primary">
+                             <!-- href="https://adrianocruzweb.github.io/trilha-css-desafio-01/" -->
+                             <span>Prévia</span>
+                             <i class="bi bi-arrow-up-right"></i>
+                         </button>
+                         <!-- <button class="btn"> -->
+                             <!-- href="https://github.com/adrianocruzweb/trilha-css-desafio-01" -->
+                             <!-- <span>Repositório</span>
+                         </button> -->
+                     </div>
+                </div>
+            </div>
+            <a class="a--button" href="https://github.com/adrianocruzweb">
                 <button class="btn btn--primary">
-                    <!-- href="https://adrianocruzweb.github.io/trilha-css-desafio-01/" -->
-                    <span>Prévia</span>
+                    <span>Ver todos os projetos</span>
                     <i class="bi bi-arrow-up-right"></i>
                 </button>
-                <button class="btn btn--primary">
-                    <!-- href="https://github.com/adrianocruzweb/trilha-css-desafio-01" -->
-                    <span>Repositório</span>
-                    <i class="bi bi-github"></i>
-                </button>
-            </div>
+            </a>
         </div>
     </section>
     <footer class="footer">
