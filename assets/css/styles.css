@@ -21,7 +21,7 @@
     --primary-bg-color: #E9E9E9;
     --secondary-bg-color: #C7C8C9;
     --primary-border-color: #C7C8C9;
-    --secondary-border-color: #c7c8c9;
+    --secondary-border-color: #9a9a9c;
 
     --title-color: #000B0F;
     --text-color: #28292E;
@@ -32,6 +32,10 @@
 html[data-theme='light'] .brand__logo {
     filter: invert(1);
 }
+/*
+html[data-theme='light'] .skills__logo {
+    filter: invert(1);
+} */
 
 * {
     margin: 0;
@@ -58,6 +62,11 @@ h1 {
     font-size: 2.5rem;
     color: var(--title-color);
     font-weight: 200;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
 }
 
 h1 b {
@@ -171,12 +180,14 @@ a:hover {
     gap: 1rem;
 }
 
+main, .projects {
+    padding: 2.5rem 1rem;
+}
+
 main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 2.5rem 1rem;
-
 }
 
 .main__content {
@@ -205,6 +216,8 @@ main {
     width: 100%;
     transition: ease-in-out 0.3s;
     cursor: pointer;
+    border: none;
+    color: var(--primary-color);
 }
 
 .btn:hover {
@@ -272,6 +285,35 @@ footer p {
 .skills__logo {
     height: 2.4rem;
 }
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--secondary-bg-color);
+    margin-top: -5.5rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.projects__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card__title {
+    font-size: 1.5rem;
+}
+
+.card__description {
+    font-size: 1rem;
+    text-align: justify;
+}
+
+
 
 
 @media (min-width: 768px) {
