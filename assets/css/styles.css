@@ -183,7 +183,6 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
 }
 
 .main__content-video iframe {
@@ -202,9 +201,15 @@ main {
     gap: 0.625rem;
     background: transparent;
     border-radius: 3.125rem;
-    padding: 0.875rem 1rem;
+    padding: 0.875rem 1.5rem;
     width: 100%;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+}
 
+.btn:hover {
+    transform: scale(1.05);
+    transition: ease-in-out 0.3s;
 }
 
 .btn span, .btn i {
@@ -235,10 +240,14 @@ main {
     text-transform: none;
 }
 
-.footer p {
+footer {
+    margin-bottom: 5rem;
+}
+
+footer p {
     font-size: 0.825rem;
     text-align: center;
-    margin-bottom: 5rem;
+    padding: 1rem;
 }
 
 .skills__list {
@@ -264,6 +273,7 @@ main {
     height: 2.4rem;
 }
 
+
 @media (min-width: 768px) {
     .header {
         /* position: fixed; */
@@ -286,17 +296,98 @@ main {
         min-width: 30%;
     }
 
-    .footer {
+    main {
+        padding: 8rem 6rem 4rem 6rem;
+    }
+
+    .main__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    .skills {
+        padding: 6.25rem 6rem 2rem 1rem;
+        margin-top: -6rem;
+    }
+
+    footer {
+        margin: 0;
+    }
+
+    /* .footer {
         display: flex;
         flex-direction: row;
         justify-content: center;
         margin-top: 4rem;
+    } */
+}
+
+
+@media (min-width: 1200px) {
+
+    main {
+        padding: 12rem 6rem 2rem;
+    }
+
+    .main__content .btn {
+        width: auto;
+    }
+
+    .skills {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10rem 6rem 4rem 6rem;
+    }
+
+    .skills h2 {
+        font-size: 3.5rem;
+        width: 60%;
+    }
+
+    .skills__list {
+        flex-flow: row;
+    }
+
+    .skills__item {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .skills__logo {
+        height: 3rem;
     }
 }
 
+
 @media (min-width: 1400px) {
+
+    h1 {
+        font-size: 6.25rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
     .header {
         padding: 1rem 15rem;
+    }
+
+    main {
+        padding: 12rem 15rem 2rem;
+    }
+
+    .skills {
+        padding: 10rem 15rem 1rem;
+    }
+
+    .skills__list {
+        flex-flow: row;
     }
 }
 
