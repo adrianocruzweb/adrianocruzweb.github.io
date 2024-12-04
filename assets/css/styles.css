@@ -530,13 +530,13 @@ footer p {
 
 #backToTop {
     position: fixed;
-    bottom: 20px;
+    bottom: 125px;
     right: 20px;
     background-color: var(--link-color);
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 15px 25px;
+    padding: 5px;
     cursor: pointer;
     z-index: 999;
     display: none;
