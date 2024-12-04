@@ -308,6 +308,68 @@ footer p {
     object-position: center;
 }
 
+.about__professional-training .col-st .row-st,
+.about__professional-training .col-st .row-nd {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#accordion {
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary-border-color);
+}
+
+.accordion__header {
+    width: 100%;
+    display: flex;
+    padding: 0.75rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}
+
+.accordion__header span {
+    color: var(--title-color);
+    font-size: 1.15rem;
+}
+
+.accordion__body {
+    display: none;
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+}
+
+.accordion__item.active .accordion__body {
+    display: flex;
+}
+
+.accordion__item.active .bi-caret-down-fill {
+    transform: rotate(180deg);
+}
+
+.accordion__item.active .accordion__header {
+    background: var(--secondary-bg-color);
+}
+
+.accordion__header.start {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.accordion__header.end {
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.accordion__item.active .accordion__header.end {
+    border-radius: 0;
+}
+
+.accordion__item.active .accordion__body.end {
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
 .card__body {
     display: flex;
     flex-direction: column;
@@ -357,7 +419,6 @@ footer p {
     display: none !important;
 }
 
-
 #popup {
     position: fixed; /* Certifica-se de que o popup está fixo na tela */
     top: 0;
@@ -386,9 +447,6 @@ footer p {
     cursor: pointer;
     font-size: 20px;
 }
-
-
-
 
 
 @media (min-width: 768px) {
@@ -463,6 +521,28 @@ footer p {
     .card__cover {
         width: 50%;
     }
+
+    .about {
+        gap: 5rem;
+    }
+
+    .about__content, .about__professional-training {
+        display: grid;
+        grid-template-columns: 34% 60%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 4rem;
+    }
+
+    .about__description h2 {
+        text-align: left;
+    }
+
+    .description__buttons {
+        justify-content: flex-start;
+    }
+
+
 }
 
 

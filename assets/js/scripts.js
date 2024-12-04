@@ -2,16 +2,13 @@ const toggleTheme = document.getElementById("toggleTheme");
 const rootHtml = document.documentElement;
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const naoAutorizados = document.querySelectorAll('.nao--autorizado');
-    console.log(naoAutorizados);
+const naoAutorizados = document.querySelectorAll('.nao--autorizado');
 
-    naoAutorizados.forEach((botao) => {
-        botao.addEventListener('click', function() {
-            const popup = document.getElementById('popup');
-            popup.classList.remove('hidden');
-            popup.style.display = 'flex';
-        });
+naoAutorizados.forEach((botao) => {
+    botao.addEventListener('click', function() {
+        const popup = document.getElementById('popup');
+        popup.classList.remove('hidden');
+        popup.style.display = 'flex';
     });
 });
 
@@ -35,5 +32,13 @@ const changeTheme = () => {
 toggleTheme.addEventListener("click", changeTheme);
 
 
+const accordionHeaders = document.querySelectorAll(".accordion__header");
 
+accordionHeaders.forEach(header => {
+    header.addEventListener("click", () => {
+        const accordionItem = header.parentElement;
+        const accodionActive = accordionItem.classList.contains("active");
 
+        accodionActive ? accordionItem.classList.remove("active") : accordionItem.classList.add("active");
+    })
+});
