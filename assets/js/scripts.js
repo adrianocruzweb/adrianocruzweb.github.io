@@ -42,3 +42,12 @@ accordionHeaders.forEach(header => {
         accodionActive ? accordionItem.classList.remove("active") : accordionItem.classList.add("active");
     })
 });
+
+const menuLinks = document.querySelectorAll(".menu__link");
+
+menuLinks.forEach(menu => {
+    menu.addEventListener("click", () => {
+        menuLinks.forEach(i => i.classList.remove("active"));
+        menu.classList.add("active");
+    })
+});
