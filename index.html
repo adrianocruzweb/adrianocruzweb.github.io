@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adriano Cruz - Portifólio</title>
-    <meta name="description" content="Portifólio do Desenvolvedor Full-Stack Adriano Cruz para compartilhar projetos e habilidades desenvolvidas.">
+    <title>Adriano Cruz | Full-Stack PHP Developer & Tech Lead</title>
+    <meta name="description" content="Full-Stack PHP Developer with 10+ years of experience. Specializing in Laravel, CakePHP, Drupal. Open to H-1B/TN sponsorship.">
+    <meta name="keywords" content="PHP Developer, Laravel, Full-Stack, Web Development, CakePHP, Drupal, Remote, H-1B">
+    <meta name="author" content="Adriano Cruz de Oliveira">
+    <meta name="theme-color" content="#1e1e2e">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Adriano Cruz | Full-Stack PHP Developer & Tech Lead">
+    <meta property="og:description" content="10+ years of experience in PHP, Laravel, CakePHP, Drupal. Open to international opportunities.">
+    <meta property="og:type" content="website">
 
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -15,22 +23,22 @@
         <nav class="header__nav">
             <ul class="menu menu--principal">
                 <li class="menu__item">
-                    <a class="menu__link active" href="#home">
+                    <a class="menu__link active" href="#home" data-i18n="nav.home">
                         <span class="menu__text">Home</span>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="#projetos">
+                    <a class="menu__link" href="#projects" data-i18n="nav.projects">
                         <span class="menu__text">Projetos</span>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="#about">
+                    <a class="menu__link" href="#about" data-i18n="nav.about">
                         <span class="menu__text">About</span>
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a class="menu__link" href="#contact">
+                    <a class="menu__link" href="#contact" data-i18n="nav.contact">
                         <span class="menu__text">Contato</span>
                     </a>
                 </li>
@@ -39,352 +47,575 @@
         <div class="header__brand">
             <img class="brand__logo" src="assets/img/darkLogo.png" alt="Logo AC">
         </div>
-        <div class="header__toggle">
-            <i id="toggleTheme" class="bi bi-triangle"></i>
+        <div class="header__controls">
+            <button id="toggleTheme" class="theme-toggle" title="Toggle theme">
+                <i class="bi bi-moon-stars"></i>
+            </button>
+            <button id="languageToggle" class="language-toggle" title="Toggle language">
+                <span id="langText">EN</span>
+            </button>
         </div>
     </header>
+
     <main>
-        <div class="main__content" id="home">
-            <h1>
-                Aqui nos especializamos em <b>desenvolver o seu sucesso.</b>
-            </h1>
-            <p>
-                Adriano Cruz desenvolvedor de sistemas web a mais de 8 anos.
-            </p>
-            <ul class="menu menu--social">
-                <li>
-                    <a class="menu__link" href="https://github.com/adrianocruzweb" target="_blank" rel="noopener">
-                        <i class="menu__icon bi bi-github"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="menu__link" href="https://www.linkedin.com/in/adrianocruzcode/" target="_blank" rel="noopener">
-                        <i class="menu__icon bi bi-linkedin"></i>
-                    </a>
-                </li>
-            </ul>
-            <a href="#projetos">
-                <button class="btn btn--primary" data-toggle="tooltip" data-placement="top">
-                    <span>
-                        Ver projetos
-                    </span>
-                    <i class="bi bi-arrow-down-right"></i>
-                </button>
-            </a>
-        </div>
-        <div class="main__content-video">
-            <iframe
-                src="https://www.youtube.com/embed/1Z2Tx6OZ0CI?si=T2PuqaVNMThb4pJV"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </main>
-    <section class="skills">
-        <h2>Conhecimento nas principais tecnologias do mercado</h2>
-        <ul class="skills__list">
-            <li class="skills__item">
-                <img  class="skills__logo" src="assets/img/php.png" alt="php">
-            </li>
-            <li class="skills__item">
-                <img  class="skills__logo" src="assets/img/csharp.png" alt="php">
-            </li>
-            <li class="skills__item">
-                <img  class="skills__logo" src="assets/img/ts.png" alt="php">
-            </li>
-            <li class="skills__item">
-                <img  class="skills__logo" src="assets/img/react.png" alt="php">
-            </li>
-            <!-- <li class="skills__item">
-                <img  class="skills__logo" src="assets/img/python.png" alt="php">
-            </li> -->
-        </ul>
-    </section>
-    <section id="projetos" class="projects">
-        <h2>Projetos</h2>
-        <div class="projects__container">
-            <div class="projects__card">
-                <img class="card__cover" src="assets/img/proj/proj_mock_first.png" alt="Screen css developer study">
-                <div class="card__body">
-                    <h3 class="card__title">
-                        Projeto de estudo de <b>CSS</b>
-                    </h3>
-                    <p class="card__description">
-                        Um projeto de uma Landing Page com algumas tecnicas simples de CSS mais com um formato futurista...
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <h1 class="hero__title" data-i18n="hero.title">
+                        Specializing in <b>Full-Stack Web Development</b>
+                    </h1>
+                    <p class="hero__subtitle" data-i18n="hero.subtitle">
+                        10+ years of expertise in PHP, Laravel, CakePHP & Drupal. Tech Lead | Passionate about clean code & scalable solutions.
                     </p>
-                    <ul class="card__list">
-                        <li class="card__item">Identidade visual</li>
-                        <li class="card__item">Perfeita para página de vendas</li>
-                        <li class="card__item">Criada a partir do design</li>
+                    <div class="hero__meta">
+                        <div class="meta__item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span data-i18n="hero.location">Campo Grande, Brazil</span>
+                        </div>
+                        <div class="meta__item">
+                            <i class="bi bi-briefcase"></i>
+                            <span data-i18n="hero.experience">10+ Years Experience</span>
+                        </div>
+                        <div class="meta__item">
+                            <i class="bi bi-globe"></i>
+                            <span data-i18n="hero.visa">Open to H-1B/TN/Work Permit</span>
+                        </div>
+                    </div>
+                    <ul class="menu menu--social">
+                        <li>
+                            <a class="menu__link" href="https://github.com/adrianocruzweb" target="_blank" rel="noopener" title="GitHub">
+                                <i class="menu__icon bi bi-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu__link" href="https://www.linkedin.com/in/adrianocruzcode/" target="_blank" rel="noopener" title="LinkedIn">
+                                <i class="menu__icon bi bi-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu__link" href="https://www.instagram.com/adrianocruzcode/" target="_blank" rel="noopener" title="Instagram">
+                                <i class="menu__icon bi bi-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu__link" href="mailto:adrianocruzweb@gmail.com" title="Email">
+                                <i class="menu__icon bi bi-envelope"></i>
+                            </a>
+                        </li>
                     </ul>
-                    <div class="card__buttons">
-                        <a href="https://adrianocruzweb.github.io/trilha-css-desafio-01/">
+                    <div class="hero__cta">
+                        <a href="#projects" class="cta-button">
                             <button class="btn btn--primary">
-                                <span>Prévia</span>
-                                <i class="bi bi-arrow-up-right"></i>
+                                <span data-i18n="hero.cta">View Projects</span>
+                                <i class="bi bi-arrow-down-right"></i>
                             </button>
                         </a>
-                        <a href="https://github.com/adrianocruzweb/trilha-css-desafio-01">
-                            <button class="btn">
-                                <span>Repositório</span>
+                        <a href="mailto:adrianocruzweb@gmail.com" class="cta-button">
+                            <button class="btn btn--secondary">
+                                <span data-i18n="hero.hire">Hire Me</span>
+                                <i class="bi bi-arrow-up-right"></i>
                             </button>
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="projects__card card--reverse">
-                <img class="card__cover" src="assets/img/proj/proj_mock_sec.png" alt="Screen site adriana perita">
-                <div class="card__body">
-                    <h3 class="card__title">
-                        Site Cliente <b>Perícia</b>
-                    </h3>
-                    <p class="card__description">
-                        Site Institucional adrianaperita.com.br
-                    </p>
-                    <ul class="card__list">
-                        <li class="card__item">Estrutura padão</li>
-                        <li class="card__item">Formulário de Contato</li>
-                        <li class="card__item">Marca pessoal</li>
-                    </ul>
-                    <div class="card__buttons">
-                        <a href="https://adrianaperita.com.br/">
-                            <button class="btn btn--primary">
-                                <span>Prévia</span>
-                                <i class="bi bi-arrow-up-right"></i>
-                            </button>
-                        </a>
-                        <button class="btn nao--autorizado">
-                            <span>Repositório</span>
-                        </button>
+                <div class="hero__visual">
+                    <div class="hero__avatar">
+                        <img src="assets/img/profile/ImagemAtualPolo.jpg" alt="Adriano Cruz" class="avatar__img">
                     </div>
                 </div>
             </div>
-            <div class="projects__card">
-                <img class="card__cover" src="assets/img/proj/proj_mock_fourth.png" alt="Screen site de aulas de inglês">
-                <div class="card__body">
-                    <h3 class="card__title">
-                        Site Cliente <b>Inglês</b>
-                    </h3>
-                    <p class="card__description">
-                         Site desenvolvido em framework CakePHP totalemnte dinâmico com score e ranking e um método inovador de aprendizado de inglês... voceaprendeagora.com
-                    </p>
-                    <ul class="card__list">
-                        <li class="card__item">Area Administrativa</li>
-                        <li class="card__item">Sistema de questionários</li>
-                        <li class="card__item">Avaliações e score</li>
+        </section>
+
+        <!-- TECH STACK SECTION -->
+        <section class="tech-stack">
+            <h2 data-i18n="tech.title">Core Technologies</h2>
+            <p class="tech-stack__subtitle" data-i18n="tech.subtitle">Specialized in modern web development frameworks and tools</p>
+            
+            <div class="tech-stack__container">
+                <div class="tech-category">
+                    <h3 data-i18n="tech.backend">Back-End</h3>
+                    <ul class="tech-stack__list">
+                        <li class="tech-item">
+                            <img src="assets/img/php.png" alt="PHP" class="tech-logo">
+                            <span>PHP</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/laravel-icon.png" alt="Laravel" class="tech-logo">
+                            <span>Laravel</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/cakephp-icon.png" alt="CakePHP" class="tech-logo">
+                            <span>CakePHP</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/drupal-icon.png" alt="Drupal" class="tech-logo">
+                            <span>Drupal</span>
+                        </li>
                     </ul>
-                    <div class="card__buttons">
-                        <a href="https://voceaprendeagora.com">
-                            <button class="btn btn--primary">
-                                <span>Prévia</span>
-                                <i class="bi bi-arrow-up-right"></i>
-                            </button>
-                        </a>
-                        <button class="btn nao--autorizado">
-                            <span>Repositório</span>
-                        </button>
-                    </div>
+                </div>
+
+                <div class="tech-category">
+                    <h3 data-i18n="tech.frontend">Front-End</h3>
+                    <ul class="tech-stack__list">
+                        <li class="tech-item">
+                            <img src="assets/img/react.png" alt="React" class="tech-logo">
+                            <span>React</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/vue-icon.png" alt="Vue.js" class="tech-logo">
+                            <span>Vue.js</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/ts.png" alt="TypeScript" class="tech-logo">
+                            <span>TypeScript</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/bootstrap-icon.png" alt="Bootstrap" class="tech-logo">
+                            <span>Bootstrap</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tech-category">
+                    <h3 data-i18n="tech.database">Databases</h3>
+                    <ul class="tech-stack__list">
+                        <li class="tech-item">
+                            <img src="assets/img/mysql-icon.png" alt="MySQL" class="tech-logo">
+                            <span>MySQL</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/postgres-icon.png" alt="PostgreSQL" class="tech-logo">
+                            <span>PostgreSQL</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/sqlserver-icon.png" alt="SQL Server" class="tech-logo">
+                            <span>SQL Server</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/mongo-icon.png" alt="MongoDB" class="tech-logo">
+                            <span>MongoDB</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tech-category">
+                    <h3 data-i18n="tech.devops">DevOps & Tools</h3>
+                    <ul class="tech-stack__list">
+                        <li class="tech-item">
+                            <img src="assets/img/docker-icon.png" alt="Docker" class="tech-logo">
+                            <span>Docker</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/kubernetes-icon.png" alt="Kubernetes" class="tech-logo">
+                            <span>Kubernetes</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/aws-icon.png" alt="AWS" class="tech-logo">
+                            <span>AWS</span>
+                        </li>
+                        <li class="tech-item">
+                            <img src="assets/img/git-icon.png" alt="Git" class="tech-logo">
+                            <span>Git</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="projects__card card--reverse">
-                <img class="card__cover" src="assets/img/proj/proj_mock_third.png" alt="Screen css developer study">
-                <div class="card__body">
-                    <h3 class="card__title">
-                        Site Cliente <b>Seguros</b>
-                     </h3>
-                    <p class="card__description">
-                        Site Institucional adequiseguros.com.br
-                    </p>
-                    <ul class="card__list">
-                        <li class="card__item">Estrutura padão</li>
-                        <li class="card__item">Formulário de Contato</li>
-                        <li class="card__item">Marca pessoal</li>
-                    </ul>
-                    <div class="card__buttons">
-                        <a href="https://adequiseguros.com.br">
-                            <button class="btn btn--primary">
-                                <span>Prévia</span>
-                                <i class="bi bi-arrow-up-right"></i>
-                            </button>
-                        </a>
-                        <button class="btn nao--autorizado">
-                            <span>Repositório</span>
-                        </button>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="projects">
+            <h2 data-i18n="projects.title">Featured Projects</h2>
+            <p class="projects__subtitle" data-i18n="projects.subtitle">Highlighting my best work and professional achievements</p>
+
+            <div class="projects__container">
+                <!-- PROJECT 1: CSS Study -->
+                <div class="projects__card">
+                    <img class="card__cover" src="assets/img/proj/proj_mock_first.png" alt="CSS Developer Study Project">
+                    <div class="card__body">
+                        <div class="card__meta">
+                            <span class="card__type">Study Project</span>
+                            <span class="card__tech">HTML • CSS • Design</span>
+                        </div>
+                        <h3 class="card__title" data-i18n="project1.title">
+                            CSS Study Project - <b>Futuristic Landing Page</b>
+                        </h3>
+                        <p class="card__description" data-i18n="project1.desc">
+                            Advanced CSS techniques and modern design patterns. Showcasing responsive layout, animations, and visual hierarchy.
+                        </p>
+                        <ul class="card__highlights">
+                            <li data-i18n="project1.h1">Modern visual identity</li>
+                            <li data-i18n="project1.h2">Perfect for sales pages</li>
+                            <li data-i18n="project1.h3">Conversion-focused design</li>
+                        </ul>
+                        <div class="card__buttons">
+                            <a href="https://adrianocruzweb.github.io/trilha-css-desafio-01/" target="_blank">
+                                <button class="btn btn--primary">
+                                    <span data-i18n="btn.preview">Preview</span>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </button>
+                            </a>
+                            <a href="https://github.com/adrianocruzweb/trilha-css-desafio-01" target="_blank">
+                                <button class="btn btn--secondary">
+                                    <span data-i18n="btn.repository">Repository</span>
+                                    <i class="bi bi-github"></i>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a class="a--button" href="https://github.com/adrianocruzweb">
-                <button class="btn btn--primary">
-                    <span>Ver todos os projetos</span>
-                    <i class="bi bi-arrow-up-right"></i>
-                </button>
-            </a>
-        </div>
-    </section>
-    <section id="about" class="about">
-        <div class="about__content">
-            <img src="assets/img/profile/ImagemAtualPolo.jpg" alt="Adriano Cruz photo profile" class="about__photo">
-            <div class="about__description">
-                <h2 class="about__title">Sobre mim</h2>
-                <p class="about__text">
-                    Meu nome é Adriano, tenho 36 anos e sou formado em Ciências da Computação. Trabalho como desenvolvedor Full Stack desde 2015. Meu objetivo é aprimorar meus conhecimentos e contribuir com o mundo da tecnologia.
-                </p>
-                <div class="about__icons">
-                    <i class="bi bi-translate"></i>
-                    <span>Inglês: Intermediário</span>
+
+                <!-- PROJECT 2: Você Aprende Agora -->
+                <div class="projects__card card--reverse">
+                    <img class="card__cover" src="assets/img/proj/proj_mock_fourth.png" alt="Você Aprende Agora - English Learning Platform">
+                    <div class="card__body">
+                        <div class="card__meta">
+                            <span class="card__type">Production</span>
+                            <span class="card__tech">PHP • CakePHP • MySQL</span>
+                        </div>
+                        <h3 class="card__title" data-i18n="project2.title">
+                            Você Aprende Agora - <b>English Learning Platform</b>
+                        </h3>
+                        <p class="card__description" data-i18n="project2.desc">
+                            Fully dynamic educational platform with innovative learning methodology. Features admin dashboard, questionnaire system, and student progress tracking.
+                        </p>
+                        <ul class="card__highlights">
+                            <li data-i18n="project2.h1">Admin dashboard</li>
+                            <li data-i18n="project2.h2">Quiz & assessment system</li>
+                            <li data-i18n="project2.h3">Student progress tracking & scoring</li>
+                        </ul>
+                        <div class="card__buttons">
+                            <a href="https://voceaprendeagora.com" target="_blank">
+                                <button class="btn btn--primary">
+                                    <span data-i18n="btn.preview">Preview</span>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </button>
+                            </a>
+                            <button class="btn btn--disabled" disabled>
+                                <span data-i18n="btn.private">Private Repository</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="description__buttons">
-                    <a href="https://www.linkedin.com/in/adrianocruzcode/">
-                        <button class="btn btn--primary">
-                            <span>COnecte-se Comigo</span>
+
+                <!-- PROJECT 3: Perícia Client Site -->
+                <div class="projects__card">
+                    <img class="card__cover" src="assets/img/proj/proj_mock_sec.png" alt="Perícia Professional Site">
+                    <div class="card__body">
+                        <div class="card__meta">
+                            <span class="card__type">Client Work</span>
+                            <span class="card__tech">PHP • HTML • CSS • Contact Form</span>
+                        </div>
+                        <h3 class="card__title" data-i18n="project3.title">
+                            Perícia Professional Site - <b>adrianaperita.com.br</b>
+                        </h3>
+                        <p class="card__description" data-i18n="project3.desc">
+                            Institutional website for professional services. Clean design with focus on credibility and client trust.
+                        </p>
+                        <ul class="card__highlights">
+                            <li data-i18n="project3.h1">Professional branding</li>
+                            <li data-i18n="project3.h2">Contact form integration</li>
+                            <li data-i18n="project3.h3">SEO optimized</li>
+                        </ul>
+                        <div class="card__buttons">
+                            <a href="https://adrianaperita.com.br/" target="_blank">
+                                <button class="btn btn--primary">
+                                    <span data-i18n="btn.preview">Preview</span>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </button>
+                            </a>
+                            <button class="btn btn--disabled" disabled>
+                                <span data-i18n="btn.private">Private Repository</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 4: Seguros -->
+                <div class="projects__card card--reverse">
+                    <img class="card__cover" src="assets/img/proj/proj_mock_third.png" alt="Seguros Insurance Site">
+                    <div class="card__body">
+                        <div class="card__meta">
+                            <span class="card__type">Client Work</span>
+                            <span class="card__tech">PHP • HTML • CSS • Contact Form</span>
+                        </div>
+                        <h3 class="card__title" data-i18n="project4.title">
+                            Insurance Services Site - <b>adequiseguros.com.br</b>
+                        </h3>
+                        <p class="card__description" data-i18n="project4.desc">
+                            Professional website for insurance services company. Focused on lead generation and customer engagement.
+                        </p>
+                        <ul class="card__highlights">
+                            <li data-i18n="project4.h1">Lead generation forms</li>
+                            <li data-i18n="project4.h2">Service showcase</li>
+                            <li data-i18n="project4.h3">Mobile responsive</li>
+                        </ul>
+                        <div class="card__buttons">
+                            <a href="https://adequiseguros.com.br" target="_blank">
+                                <button class="btn btn--primary">
+                                    <span data-i18n="btn.preview">Preview</span>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </button>
+                            </a>
+                            <button class="btn btn--disabled" disabled>
+                                <span data-i18n="btn.private">Private Repository</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Button -->
+                <div class="projects__footer">
+                    <a href="https://github.com/adrianocruzweb" target="_blank">
+                        <button class="btn btn--primary btn--large">
+                            <span data-i18n="btn.all-projects">View All Projects on GitHub</span>
                             <i class="bi bi-arrow-up-right"></i>
                         </button>
                     </a>
-                    <a href="">
-                        <button class="btn">
-                            <span>Currículo</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS SECTION -->
+        <section class="achievements">
+            <h2 data-i18n="achievements.title">Professional Achievements</h2>
+            <div class="achievements__grid">
+                <div class="achievement__card">
+                    <div class="achievement__icon">
+                        <i class="bi bi-bug"></i>
+                    </div>
+                    <h3>200+</h3>
+                    <p data-i18n="achievement1">Critical Bugs Resolved (100% SLA)</p>
+                </div>
+                <div class="achievement__card">
+                    <div class="achievement__icon">
+                        <i class="bi bi-lightning"></i>
+                    </div>
+                    <h3>60%</h3>
+                    <p data-i18n="achievement2">Latency Reduction in High-Traffic Systems</p>
+                </div>
+                <div class="achievement__card">
+                    <div class="achievement__icon">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <h3>40%</h3>
+                    <p data-i18n="achievement3">Performance Improvement Through Refactoring</p>
+                </div>
+                <div class="achievement__card">
+                    <div class="achievement__icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h3>46+</h3>
+                    <p data-i18n="achievement4">Simultaneous Projects Managed</p>
+                </div>
+                <div class="achievement__card">
+                    <div class="achievement__icon">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                    <h3>5M+</h3>
+                    <p data-i18n="achievement5">Users Served (Colombia Election System)</p>
+                </div>
+                <div class="achievement__card">
+                    <div class="achievement__icon">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+                    <h3>100+</h3>
+                    <p data-i18n="achievement6">Students Trained in Programming & Automation</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="about__container">
+            <div class="about__visual">
+                <img src="assets/img/profile/ImagemAtualPolo.jpg" alt="Adriano Cruz - Professional Photo" class="about__photo">
+                <div class="about__badges">
+                    <div class="badge">
+                        <i class="bi bi-award"></i>
+                        <span data-i18n="about.certified">Certified Professional</span>
+                    </div>
+                    <div class="badge">
+                        <i class="bi bi-globe"></i>
+                        <span data-i18n="about.remote">Remote Ready</span>
+                    </div>
+                    <div class="badge">
+                        <i class="bi bi-briefcase"></i>
+                        <span data-i18n="about.available">Available for Work</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about__content">
+                <h2 class="about__title" data-i18n="about.title">About Me</h2>
+                
+                <p class="about__intro" data-i18n="about.intro">
+                    I'm Adriano, a Full-Stack PHP Developer with 10+ years of professional experience. My journey started in 2013 and has taken me through diverse sectors including government, legal-tech, transportation, and education.
+                </p>
+
+                <p class="about__text" data-i18n="about.description">
+                    As a Computer Science graduate from Anhanguera University with an MBA in Project Management & Agile Methodologies (2026), I combine deep technical expertise with strategic thinking. I specialize in responsive web development using Laravel, CakePHP, and Drupal, while also maintaining expertise in system architecture and technical leadership.
+                </p>
+
+                <div class="about__focus">
+                    <h3 data-i18n="about.focus">Current Focus</h3>
+                    <p data-i18n="about.focus-desc">
+                        Recently transitioned to technical education and AI integration with robotics at SENAI MS, while actively seeking remote PHP development roles with international companies.
+                    </p>
+                </div>
+
+                <div class="about__languages">
+                    <h3 data-i18n="about.languages">Languages</h3>
+                    <div class="language__list">
+                        <div class="language__item">
+                            <span>Portuguese</span>
+                            <div class="proficiency proficiency--native">Native</div>
+                        </div>
+                        <div class="language__item">
+                            <span>English</span>
+                            <div class="proficiency proficiency--fluent">Fluent Professional</div>
+                        </div>
+                        <div class="language__item">
+                            <span>Spanish</span>
+                            <div class="proficiency proficiency--intermediate">Intermediate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about__education">
+                    <h3 data-i18n="about.education">Education</h3>
+                    <div class="education__item">
+                        <h4 data-i18n="edu1.title">Bachelor of Science in Computer Science</h4>
+                        <p class="education__detail">Anhanguera University, Campo Grande (2014)</p>
+                    </div>
+                    <div class="education__item">
+                        <h4 data-i18n="edu2.title">MBA in Project Management & Agile Methodologies</h4>
+                        <p class="education__detail">FAVENI (2026)</p>
+                    </div>
+                </div>
+
+                <div class="about__cta">
+                    <a href="mailto:adrianocruzweb@gmail.com">
+                        <button class="btn btn--primary">
+                            <span data-i18n="about.connect">Let's Connect</span>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </button>
+                    </a>
+                    <a href="https://www.linkedin.com/in/adrianocruzcode/" target="_blank">
+                        <button class="btn btn--secondary">
+                            <span data-i18n="about.linkedin">View on LinkedIn</span>
+                            <i class="bi bi-linkedin"></i>
                         </button>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="about__professional-training">
-            <div class="col-st">
-                <div class="row-st">
-                    <h3>Formação</h3>
-                    <h4>Bacharelado em Ciência da Computação</h4>
-                    <span>Mar 2010 - Mar 2015</span>
-                    <div class="about__icons">
-                        <i class="bi bi-bank"></i>
-                        <span>Universidade Anhanguera</span>
-                    </div>
-                    <div class="about__icons">
-                        <i class="bi bi-mortarboard"></i>
-                        <span>Graduação Stricto Sensu</span>
-                    </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <h2 data-i18n="contact.title">Get In Touch</h2>
+        <p class="contact__subtitle" data-i18n="contact.subtitle">
+            I'm available for new projects and professional connections. Let's build something amazing together.
+        </p>
+
+        <div class="contact__methods">
+            <a href="mailto:adrianocruzweb@gmail.com" class="contact__method">
+                <i class="bi bi-envelope"></i>
+                <div>
+                    <h3 data-i18n="contact.email">Email</h3>
+                    <p>adrianocruzweb@gmail.com</p>
                 </div>
-                <!-- <div class="row-nd">
-                    <h3>Experiências</h3>
-                    <h4>Desenvolvedor Full-Stack</h4>
-                    <span>Mar 2010 - Mar 2015</span>
-                    <div class="about__icons">
-                        <i class="bi bi-bank"></i>
-                        <span>Universidade Anhanguera</span>
-                    </div>
-                    <div class="about__icons">
-                        <i class="bi bi-mortarboard"></i>
-                        <span>Graduação Stricto Sensu</span>
-                    </div>
-                </div> -->
-            </div>
-            <div class="col-nd">
-                <h3>Cursos</h3>
-                <div id="accordion">
-                    <div class="accordion__item active">
-                        <button class="accordion__header start">
-                            <span>Versionamento de Código com Git e GitHub</span>
-                            <i class="bi bi-caret-down-fill"></i>
-                        </button>
-                        <div class="accordion__body">
-                            <p>Digital Innovation One. Nov 2023 2h.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item">
-                        <button class="accordion__header">
-                            <span>Contribuindo em um Projeto Open Source no GitHub</span>
-                            <i class="bi bi-caret-down-fill"></i>
-                        </button>
-                        <div class="accordion__body">
-                            <p>Digital Innovation One. Jan 2024 4h.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item">
-                        <button class="accordion__header end">
-                            <span>Gerenciando Componentes React</span>
-                            <i class="bi bi-caret-down-fill"></i>
-                        </button>
-                        <div class="accordion__body end">
-                            <p>Digital Innovation One. Out 2024 6h.</p>
-                        </div>
-                    </div>
-
+            </a>
+            <a href="https://wa.me/5567981894046" target="_blank" class="contact__method">
+                <i class="bi bi-whatsapp"></i>
+                <div>
+                    <h3 data-i18n="contact.whatsapp">WhatsApp</h3>
+                    <p>+55 67 98189-4046</p>
                 </div>
-            </div>
+            </a>
+            <a href="https://www.linkedin.com/in/adrianocruzcode/" target="_blank" class="contact__method">
+                <i class="bi bi-linkedin"></i>
+                <div>
+                    <h3>LinkedIn</h3>
+                    <p>adrianocruzcode</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="contact__social">
+            <h3 data-i18n="contact.follow">Follow Me</h3>
+            <ul class="menu menu--social">
+                <li>
+                    <a class="menu__link" href="https://github.com/adrianocruzweb" target="_blank" title="GitHub">
+                        <i class="menu__icon bi bi-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu__link" href="https://www.linkedin.com/in/adrianocruzcode/" target="_blank" title="LinkedIn">
+                        <i class="menu__icon bi bi-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu__link" href="https://www.instagram.com/adrianocruzcode/" target="_blank" title="Instagram">
+                        <i class="menu__icon bi bi-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </section>
-    <section class="contact" id="contact">
-        <h2>Contacte-me</h2>
-        <p>Estou disponivel para serviçoes e novas conexões. Contacte-me cia e-mail e conecte-se comigo atraves das minhas redes sociais. </p>
-        <ul class="menu menu--social">
-            <li>
-                <a class="menu__link" href="https://github.com/adrianocruzweb" target="_blank">
-                    <i class="menu__icon bi bi-github"></i>
-                    <span>GitHub</span>
-                </a>
-            </li>
-            <li>
-                <a class="menu__link" href="https://www.linkedin.com/in/adrianocruzcode/" target="_blank">
-                    <i class="menu__icon bi bi-linkedin"></i>
-                    <span>Linkedin</span>
-                </a>
-            </li>
-            <li>
-                <a class="menu__link" href="https://www.instagram.com/adrianocruzcode/" target="_blank">
-                    <i class="menu__icon bi bi-instagram"></i>
-                    <span>Instagram</span>
-                </a>
-            </li>
-        </ul>
-    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
-        <p>
-            © 2024. All rights reserved. Adriano Cruz. Development of the <a href="https://github.com/adrianocruzweb/" target="_blank">AC</a>
-        </p>
+        <div class="footer__content">
+            <p data-i18n="footer.copyright">© 2024. All rights reserved. Adriano Cruz. Development of the</p>
+            <a href="https://github.com/adrianocruzweb/" target="_blank">AC</a>
+        </div>
+        <p class="footer__note" data-i18n="footer.note">Open to international opportunities with H-1B, TN, or Work Permit sponsorship</p>
     </footer>
+
+    <!-- MOBILE NAVIGATION -->
     <nav class="nav--mobile">
         <ul class="menu menu--mobile">
             <li class="menu__item">
                 <a class="menu__link active" href="#home">
                     <i class="menu__icon bi bi-house-door"></i>
-                    <span class="menu__text">Home</span>
+                    <span class="menu__text" data-i18n="nav.home">Home</span>
                 </a>
             </li>
             <li class="menu__item">
-                <a class="menu__link" href="#projetos">
+                <a class="menu__link" href="#projects">
                     <i class="menu__icon bi bi-folder"></i>
-                    <span class="menu__text">Projetos</span>
+                    <span class="menu__text" data-i18n="nav.projects">Projetos</span>
                 </a>
             </li>
             <li class="menu__item">
                 <a class="menu__link" href="#about">
                     <i class="menu__icon bi bi-info-circle"></i>
-                    <span class="menu__text">About</span>
+                    <span class="menu__text" data-i18n="nav.about">About</span>
                 </a>
             </li>
             <li class="menu__item">
                 <a class="menu__link" href="#contact">
                     <i class="menu__icon bi bi-envelope"></i>
-                    <span class="menu__text">Contato</span>
+                    <span class="menu__text" data-i18n="nav.contact">Contato</span>
                 </a>
             </li>
         </ul>
     </nav>
-    <div id="popup" class="hidden" style="display: none;">
-        <div class="popup-content">
-            <span id="closePopupBtn">
-                &times;
-            </span>
-            <p>Repositório Privado</p>
-        </div>
-    </div>
-    <button id="backToTop">
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTop" class="back-to-top" title="Back to Top">
         <i class="bi bi-arrow-up-short"></i>
     </button>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/i18n.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
 </html>
