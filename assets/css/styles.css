@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   ADRIANO CRUZ - PORTFOLIO STYLESHEET (CORRIGIDO COM THEME DINÂMICO)
+   ADRIANO CRUZ - PORTFOLIO STYLESHEET (ADAPTADO PARA SEU HTML)
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ──────────────────────────────────────────────────────────────────────────
-   1. CSS RESET & ROOT VARIABLES COM SUPORTE A THEME
+   1. CSS RESET & ROOT VARIABLES COM SUPORTE A THEME - ADAPTADO
    ────────────────────────────────────────────────────────────────────────── */
 
 * {
@@ -162,7 +162,7 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   3. HEADER & NAVIGATION - ✅ COM SUPORTE A THEME
+   3. HEADER & NAVIGATION - ✅ ADAPTADO PARA SEU HTML
    ────────────────────────────────────────────────────────────────────────── */
 
 .header {
@@ -177,41 +177,20 @@ img {
     transition: background-color var(--transition),
                 border-color var(--transition),
                 box-shadow var(--transition);     /* ✅ Transição suave */
-}
-
-.header__wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.header__brand {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-xl);
-    color: var(--text-primary);
-}
-
-.brand__logo {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-md);
-    object-fit: cover;
-    transition: filter var(--transition);  /* ✅ Transição suave para invert */
-}
-
+/* Menu Principal - Lado esquerdo */
 .header__nav {
     display: flex;
-    gap: var(--space-lg);
+    justify-content: flex-start;
     flex: 1;
-    justify-content: center;
 }
 
-.menu {
+.menu--principal {
     display: flex;
     list-style: none;
     gap: var(--space-lg);
@@ -249,10 +228,27 @@ img {
     border-radius: var(--radius-full);
 }
 
-.menu__icon {
-    font-size: var(--font-size-lg);
+/* Brand/Logo - Centro */
+.header__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin: 0 var(--space-lg);
 }
 
+.brand__logo {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    transition: filter var(--transition);  /* ✅ Transição suave para invert */
+    background: transparent;
+}
+
+/* Controls - Direita */
 .header__controls {
     display: flex;
     gap: var(--space-md);
@@ -269,6 +265,9 @@ img {
     transition: all var(--transition);
     padding: var(--space-sm);
     border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-toggle:hover,
@@ -337,7 +336,7 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   5. HERO SECTION - ✅ COM THEME DINÂMICO
+   5. HERO SECTION
    ────────────────────────────────────────────────────────────────────────── */
 
 .hero {
@@ -457,6 +456,7 @@ img {
 .tech-stack {
     padding: var(--space-3xl) var(--space-lg);
     background: var(--bg-darker);
+    transition: background-color var(--transition);
 }
 
 .tech-stack > h2 {
@@ -532,6 +532,8 @@ img {
 
 .projects {
     padding: var(--space-3xl) var(--space-lg);
+    background: var(--bg-dark);
+    transition: background-color var(--transition);
 }
 
 .projects > h2 {
@@ -623,6 +625,7 @@ img {
 .achievements {
     padding: var(--space-3xl) var(--space-lg);
     background: var(--bg-darker);
+    transition: background-color var(--transition);
 }
 
 .achievements > h2 {
@@ -679,6 +682,8 @@ img {
 
 #about {
     padding: var(--space-3xl) var(--space-lg);
+    background: var(--bg-dark);
+    transition: background-color var(--transition);
 }
 
 .about {
@@ -722,6 +727,7 @@ img {
 .about__text {
     margin-bottom: var(--space-lg);
     line-height: 1.8;
+    color: var(--text-secondary);
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -731,6 +737,7 @@ img {
 #contact {
     padding: var(--space-3xl) var(--space-lg);
     background: var(--bg-darker);
+    transition: background-color var(--transition);
 }
 
 .contact {
@@ -793,6 +800,7 @@ img {
     text-align: left;
     margin: 0;
     font-size: var(--font-size-sm);
+    color: var(--text-secondary);
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -804,6 +812,8 @@ img {
     background: var(--bg-darker);
     border-top: 1px solid var(--border-color);
     text-align: center;
+    transition: background-color var(--transition),
+                border-color var(--transition);
 }
 
 .footer__wrapper {
@@ -850,11 +860,15 @@ img {
     box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
-.back-to-top.show {
+#backToTop {
+    display: none;
+}
+
+#backToTop.show {
     display: flex;
 }
 
-.back-to-top:hover {
+#backToTop:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-xl), var(--shadow-glow);
 }
@@ -904,15 +918,34 @@ img {
     }
 
     .header {
-        padding: var(--space-md) var(--space-md);
+        flex-direction: column;
+        padding: var(--space-md);
+        gap: var(--space-md);
     }
 
     .header__nav {
-        display: none;
+        order: 3;
+        width: 100%;
+        margin-bottom: var(--space-md);
+    }
+
+    .menu--principal {
+        width: 100%;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .header__brand {
+        order: 1;
+        margin: 0;
+    }
+
+    .header__controls {
+        order: 2;
     }
 
     .hero {
-        margin-top: 60px;
+        margin-top: 100px;
         padding: var(--space-2xl) var(--space-md);
     }
 
@@ -945,7 +978,7 @@ img {
         width: 100%;
     }
 
-    .back-to-top {
+    #backToTop {
         bottom: 80px;
         right: 15px;
         width: 45px;
@@ -970,6 +1003,10 @@ img {
 
     .tech-stack__list {
         grid-template-columns: 1fr;
+    }
+
+    .menu--principal {
+        gap: var(--space-sm);
     }
 }
 
@@ -1058,5 +1095,5 @@ html {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   END OF STYLESHEET - FULL DARK/LIGHT THEME SUPPORT
+   END OF STYLESHEET - ADAPTADO PARA SEU HTML
    ═════════════════════════════════════════════════════════════════════════ */
