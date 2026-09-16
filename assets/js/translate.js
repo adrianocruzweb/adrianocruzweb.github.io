@@ -1,10 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   ADRIANO CRUZ - PORTFOLIO JAVASCRIPT
-   Theme Toggle + Language Toggle + Interactions
+   ADRIANO CRUZ - PORTFOLIO JAVASCRIPT (CORRIGIDO)
+   Theme Toggle + Language Toggle + Logo Invert
    ═══════════════════════════════════════════════════════════════════════════ */
 
 // ──────────────────────────────────────────────────────────────────────────
-// 1. THEME TOGGLE (Dark/Light Mode)
+// 1. THEME TOGGLE (Dark/Light Mode) - COM SCROLL DETECTOR
 // ──────────────────────────────────────────────────────────────────────────
 
 function initThemeToggle() {
@@ -13,34 +13,53 @@ function initThemeToggle() {
 
     // Get saved theme or default to 'dark'
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    html.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
+    applyTheme(savedTheme);
 
     if (toggleTheme) {
-        toggleTheme.addEventListener('click', () => {
+        toggleTheme.addEventListener('click', (e) => {
+            e.preventDefault();
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-            html.setAttribute('data-theme', newTheme);
+            applyTheme(newTheme);
             localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
 
             console.log(`✅ Theme changed to: ${newTheme}`);
         });
     }
 }
 
-function updateThemeIcon(theme) {
+function applyTheme(theme) {
+    const html = document.documentElement;
     const toggleTheme = document.getElementById('toggleTheme');
-    if (!toggleTheme) return;
+    const brandLogo = document.querySelector('.brand__logo');
 
-    if (theme === 'dark') {
-        toggleTheme.innerHTML = '<i class="bi bi-sun-fill"></i>';
-        toggleTheme.title = 'Switch to Light Mode';
-    } else {
-        toggleTheme.innerHTML = '<i class="bi bi-moon-stars-fill"></i>';
-        toggleTheme.title = 'Switch to Dark Mode';
+    // Aplica o tema ao html
+    html.setAttribute('data-theme', theme);
+
+    // Atualiza o ícone
+    if (toggleTheme) {
+        if (theme === 'dark') {
+            toggleTheme.innerHTML = '<i class="bi bi-sun-fill"></i>';
+            toggleTheme.title = 'Switch to Light Mode';
+        } else {
+            toggleTheme.innerHTML = '<i class="bi bi-moon-stars-fill"></i>';
+            toggleTheme.title = 'Switch to Dark Mode';
+        }
     }
+
+    // Inverte o logo se necessário
+    if (brandLogo) {
+        if (theme === 'light') {
+            brandLogo.style.filter = 'invert(1) brightness(1.2)';
+            brandLogo.style.transition = 'filter 0.3s ease-in-out';
+        } else {
+            brandLogo.style.filter = 'invert(0) brightness(1)';
+            brandLogo.style.transition = 'filter 0.3s ease-in-out';
+        }
+    }
+
+    console.log(`🎨 Theme applied: ${theme}, Logo inverted: ${theme === 'light'}`);
 }
 
 // ──────────────────────────────────────────────────────────────────────────
@@ -49,14 +68,14 @@ function updateThemeIcon(theme) {
 
 function initLanguageToggle() {
     const languageToggle = document.getElementById('languageToggle');
-    const html = document.documentElement;
 
     // Get saved language or default to 'pt'
     const savedLanguage = localStorage.getItem('language') || 'pt';
     setLanguage(savedLanguage, false);
 
     if (languageToggle) {
-        languageToggle.addEventListener('click', () => {
+        languageToggle.addEventListener('click', (e) => {
+            e.preventDefault();
             const currentLanguage = localStorage.getItem('language') || 'pt';
             const newLanguage = currentLanguage === 'pt' ? 'en' : 'pt';
             setLanguage(newLanguage);
@@ -74,7 +93,7 @@ function setLanguage(lang, updateStorage = true) {
 
     updateLanguageUI(lang);
     applyTranslations(lang);
-    console.log(`✅ Language changed to: ${lang}`);
+    console.log(`🌐 Language changed to: ${lang}`);
 }
 
 function updateLanguageUI(lang) {
@@ -273,34 +292,52 @@ function initSmoothScrollSpy() {
 }
 
 // ──────────────────────────────────────────────────────────────────────────
-// 7. INITIALIZATION
+// 7. HEADER SHADOW ON SCROLL - ✅ NOVO
+// ──────────────────────────────────────────────────────────────────────────
+
+function initHeaderShadow() {
+    const header = document.querySelector('.header');
+
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            header.style.boxShadow = 'var(--shadow-md)';
+        } else {
+            header.style.boxShadow = '0 0 0 rgba(0, 0, 0, 0)';
+        }
+    });
+}
+
+// ──────────────────────────────────────────────────────────────────────────
+// 8. INITIALIZATION
 // ──────────────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Initializing Portfolio...');
     
+    // Initialize all features
     initThemeToggle();
     initLanguageToggle();
     initBackToTop();
     initActiveMenuLink();
     initSmoothScrollSpy();
+    initHeaderShadow();
 
     console.log('✅ Portfolio initialized successfully!');
+    logInfo();
 });
 
 // ──────────────────────────────────────────────────────────────────────────
-// 8. UTILS
+// 9. UTILS
 // ──────────────────────────────────────────────────────────────────────────
 
 function logInfo() {
     console.log('%c Adriano Cruz Portfolio', 'font-size: 20px; font-weight: bold; color: #0a84ff;');
     console.log('%c Full-Stack PHP Developer | 10+ Years Experience', 'font-size: 14px; color: #34c759;');
-    console.log('%c Theme: ' + document.documentElement.getAttribute('data-theme'), 'font-size: 12px;');
-    console.log('%c Language: ' + localStorage.getItem('language') || 'pt', 'font-size: 12px;');
+    console.log('%c Theme: ' + (document.documentElement.getAttribute('data-theme') || 'dark'), 'font-size: 12px;');
+    console.log('%c Language: ' + (localStorage.getItem('language') || 'pt'), 'font-size: 12px;');
 }
-
-// Log info on load
-setTimeout(logInfo, 500);
 
 /* ═══════════════════════════════════════════════════════════════════════════
    END OF JAVASCRIPT
