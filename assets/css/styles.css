@@ -335,6 +335,21 @@ img {
     font-size: var(--font-size-lg);
 }
 
+
+
+.menu.menu--social {
+    gap: 20px;              /* Aumenta espaço */
+    list-style: none;
+}
+
+.menu.menu--social a {
+    width: 45px;           /* Aumenta tamanho */
+    height: 45px;
+    display: inline-flex;  /* Centraliza melhor */
+    text-decoration: none;
+
+}
+
 /* ──────────────────────────────────────────────────────────────────────────
    5. HERO SECTION
    ────────────────────────────────────────────────────────────────────────── */
