@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   ADRIANO CRUZ - PORTFOLIO STYLESHEET (ADAPTADO PARA SEU HTML)
+   ADRIANO CRUZ - HEADER CORRIGIDO (SEM COBRIR CONTEÚDO)
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ──────────────────────────────────────────────────────────────────────────
-   1. CSS RESET & ROOT VARIABLES COM SUPORTE A THEME - ADAPTADO
+   1. CSS RESET & ROOT VARIABLES COM SUPORTE A THEME
    ────────────────────────────────────────────────────────────────────────── */
 
 * {
@@ -15,7 +15,6 @@
 /* ✅ DARK THEME (PADRÃO) */
 :root,
 :root[data-theme='dark'] {
-    /* Colors - Dark Theme */
     --primary: #0a84ff;
     --primary-dark: #0066cc;
     --primary-light: #3fa9f5;
@@ -34,7 +33,6 @@
     
     --border-color: rgba(255, 255, 255, 0.1);
     
-    /* Spacing */
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 1rem;
@@ -43,7 +41,6 @@
     --space-2xl: 3rem;
     --space-3xl: 4rem;
     
-    /* Typography */
     --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 
                    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 
                    sans-serif;
@@ -64,19 +61,16 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     
-    /* Transitions */
     --transition-fast: 0.15s ease-in-out;
     --transition: 0.3s ease-in-out;
     --transition-slow: 0.5s ease-in-out;
     
-    /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
     --shadow-glow: 0 0 20px rgba(10, 132, 255, 0.3);
     
-    /* Border radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
@@ -86,29 +80,24 @@
 
 /* ✅ LIGHT THEME */
 :root[data-theme='light'] {
-    /* Colors - Light Theme */
     --primary: #0a84ff;
     --primary-dark: #0066cc;
     --primary-light: #3fa9f5;
     --secondary: #34c759;
     --accent: #ff9500;
 
-    --bg-dark: #ffffff;           /* ✅ Fundo branco */
-    --bg-darker: #f5f5f5;         /* ✅ Fundo cinza claro */
-    --bg-light: #000000;          /* ✅ Texto escuro */
+    --bg-dark: #ffffff;
+    --bg-darker: #f5f5f5;
+    --bg-light: #000000;
     --bg-card: rgba(0, 0, 0, 0.02);
     --bg-hover: rgba(0, 0, 0, 0.05);
 
-    --text-primary: #1e1e2e;      /* ✅ Texto escuro */
+    --text-primary: #1e1e2e;
     --text-secondary: rgba(0, 0, 0, 0.6);
     --text-tertiary: rgba(0, 0, 0, 0.4);
 
     --border-color: rgba(0, 0, 0, 0.1);
 }
-
-/* ──────────────────────────────────────────────────────────────────────────
-   2. BASE STYLES
-   ────────────────────────────────────────────────────────────────────────── */
 
 html {
     scroll-behavior: smooth;
@@ -125,7 +114,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
@@ -162,42 +150,52 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   3. HEADER & NAVIGATION - ✅ ADAPTADO PARA SEU HTML
+   2. HEADER - ✅ CORRIGIDO - SEM COBRIR CONTEÚDO
    ────────────────────────────────────────────────────────────────────────── */
 
 .header {
-    position: fixed;
+    /* ✅ Mudado: position: fixed para position: sticky (fica visível ao scroll mas não cobre) */
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: var(--bg-dark);                    /* ✅ Usa CSS variable */
+    background: var(--bg-dark);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color); /* ✅ Usa CSS variable */
-    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
     transition: background-color var(--transition),
                 border-color var(--transition),
-                box-shadow var(--transition);     /* ✅ Transição suave */
+                box-shadow var(--transition);
+
+    /* ✅ Layout flexível melhorado */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    padding: var(--space-md) var(--space-lg);
+    gap: var(--space-lg);
+    flex-wrap: nowrap;
+    min-height: 60px;
 }
 
-/* Menu Principal - Lado esquerdo */
+/* ✅ Menu Principal - Esquerda - Flex: 1 para crescer */
 .header__nav {
     display: flex;
     justify-content: flex-start;
     flex: 1;
+    min-width: 0;
 }
 
 .menu--principal {
     display: flex;
     list-style: none;
     gap: var(--space-lg);
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
 }
 
 .menu__item {
     position: relative;
+    white-space: nowrap;
 }
 
 .menu__link {
@@ -209,6 +207,7 @@ img {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    font-size: var(--font-size-base);
 }
 
 .menu__link:hover,
@@ -219,7 +218,7 @@ img {
 .menu__link.active::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
     width: 24px;
@@ -228,15 +227,16 @@ img {
     border-radius: var(--radius-full);
 }
 
-/* Brand/Logo - Centro */
+/* ✅ Brand/Logo - Centro - Sem margens extras */
 .header__brand {
     display: flex;
     align-items: center;
     gap: var(--space-md);
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     color: var(--text-primary);
-    margin: 0 var(--space-lg);
+    flex-shrink: 0;
+    margin: 0;
 }
 
 .brand__logo {
@@ -244,15 +244,17 @@ img {
     height: 40px;
     border-radius: var(--radius-md);
     object-fit: contain;
-    transition: filter var(--transition);  /* ✅ Transição suave para invert */
+    transition: filter var(--transition);
     background: transparent;
+    flex-shrink: 0;
 }
 
-/* Controls - Direita */
+/* ✅ Controls - Direita - Sem espaço desperdiçado */
 .header__controls {
     display: flex;
     gap: var(--space-md);
     align-items: center;
+    flex-shrink: 0;
 }
 
 .theme-toggle,
@@ -268,6 +270,10 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    min-width: 40px;
 }
 
 .theme-toggle:hover,
@@ -281,68 +287,17 @@ img {
     font-weight: var(--font-weight-bold);
     min-width: 30px;
     text-align: center;
+    font-size: var(--font-size-sm);
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   4. BUTTONS
-   ────────────────────────────────────────────────────────────────────────── */
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-lg);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    border: none;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: all var(--transition);
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.btn--primary {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    box-shadow: var(--shadow-md);
-}
-
-.btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
-}
-
-.btn--primary:active {
-    transform: translateY(0);
-}
-
-.btn--secondary {
-    background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-}
-
-.btn--secondary:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.btn--large {
-    padding: var(--space-lg) var(--space-2xl);
-    font-size: var(--font-size-lg);
-}
-
-/* ──────────────────────────────────────────────────────────────────────────
-   5. HERO SECTION
+   3. HERO SECTION - ✅ SEM MARGIN-TOP (já não precisa)
    ────────────────────────────────────────────────────────────────────────── */
 
 .hero {
-    margin-top: 60px;
+    /* ✅ Removido: margin-top: 60px (não precisa mais com sticky) */
     padding: var(--space-3xl) var(--space-lg);
-    min-height: calc(100vh - 60px);
+    min-height: auto;
     display: flex;
     align-items: center;
     background: linear-gradient(135deg,
@@ -450,7 +405,59 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   6. TECH STACK SECTION
+   4. BUTTONS
+   ────────────────────────────────────────────────────────────────────────── */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.btn--primary:active {
+    transform: translateY(0);
+}
+
+.btn--secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn--secondary:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn--large {
+    padding: var(--space-lg) var(--space-2xl);
+    font-size: var(--font-size-lg);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   5. TECH STACK SECTION
    ────────────────────────────────────────────────────────────────────────── */
 
 .tech-stack {
@@ -527,7 +534,7 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   7. PROJECTS SECTION
+   6. PROJECTS SECTION
    ────────────────────────────────────────────────────────────────────────── */
 
 .projects {
@@ -577,14 +584,6 @@ img {
     box-shadow: var(--shadow-lg);
 }
 
-.projects__card.card--reverse {
-    direction: rtl;
-}
-
-.projects__card.card--reverse > * {
-    direction: ltr;
-}
-
 .card__cover {
     width: 100%;
     aspect-ratio: 16 / 10;
@@ -619,7 +618,7 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   8. ACHIEVEMENTS SECTION
+   7. ACHIEVEMENTS SECTION
    ────────────────────────────────────────────────────────────────────────── */
 
 .achievements {
@@ -677,7 +676,7 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   9. ABOUT SECTION
+   8. ABOUT SECTION
    ────────────────────────────────────────────────────────────────────────── */
 
 #about {
@@ -731,7 +730,7 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   10. CONTACT SECTION
+   9. CONTACT SECTION
    ────────────────────────────────────────────────────────────────────────── */
 
 #contact {
@@ -804,7 +803,7 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   11. FOOTER
+   10. FOOTER
    ────────────────────────────────────────────────────────────────────────── */
 
 .footer {
@@ -837,10 +836,10 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   12. BACK TO TOP BUTTON
+   11. BACK TO TOP BUTTON
    ────────────────────────────────────────────────────────────────────────── */
 
-.back-to-top {
+#backToTop {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -860,10 +859,6 @@ img {
     box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
-#backToTop {
-    display: none;
-}
-
 #backToTop.show {
     display: flex;
 }
@@ -874,7 +869,7 @@ img {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   13. RESPONSIVE DESIGN
+   12. RESPONSIVE DESIGN
    ────────────────────────────────────────────────────────────────────────── */
 
 @media (max-width: 1024px) {
@@ -917,35 +912,47 @@ img {
         --space-xl: 1rem;
     }
 
+    /* ✅ Header adaptado para mobile */
     .header {
-        flex-direction: column;
+        flex-wrap: wrap;
         padding: var(--space-md);
-        gap: var(--space-md);
+        gap: var(--space-sm);
     }
 
     .header__nav {
         order: 3;
         width: 100%;
-        margin-bottom: var(--space-md);
+        flex-basis: 100%;
     }
 
     .menu--principal {
         width: 100%;
         flex-direction: column;
-        gap: var(--space-md);
+        gap: var(--space-sm);
+    }
+
+    .menu__item {
+        width: 100%;
+    }
+
+    .menu__link {
+        width: 100%;
+        padding: var(--space-md);
     }
 
     .header__brand {
         order: 1;
         margin: 0;
+        flex: 0 0 auto;
     }
 
     .header__controls {
         order: 2;
+        flex: 1;
+        justify-content: flex-end;
     }
 
     .hero {
-        margin-top: 100px;
         padding: var(--space-2xl) var(--space-md);
     }
 
@@ -993,8 +1000,33 @@ img {
         --space-xl: 1.25rem;
     }
 
+    .header {
+        padding: var(--space-sm);
+        gap: var(--space-xs);
+    }
+
+    .menu--principal {
+        gap: var(--space-xs);
+    }
+
+    .menu__link {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: var(--font-size-sm);
+    }
+
     .header__brand {
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-base);
+    }
+
+    .brand__logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .theme-toggle,
+    .language-toggle {
+        width: 36px;
+        height: 36px;
     }
 
     .hero {
@@ -1004,14 +1036,10 @@ img {
     .tech-stack__list {
         grid-template-columns: 1fr;
     }
-
-    .menu--principal {
-        gap: var(--space-sm);
-    }
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   14. UTILITIES & ANIMATIONS
+   13. UTILITIES & ANIMATIONS
    ────────────────────────────────────────────────────────────────────────── */
 
 .container {
@@ -1020,12 +1048,10 @@ img {
     padding: 0 var(--space-lg);
 }
 
-/* Smooth scroll */
 html {
     scroll-behavior: smooth;
 }
 
-/* Selection */
 ::selection {
     background: var(--primary);
     color: white;
@@ -1048,7 +1074,6 @@ html {
     background: var(--primary-light);
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -1095,5 +1120,5 @@ html {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   END OF STYLESHEET - ADAPTADO PARA SEU HTML
+   END - HEADER CORRIGIDO E DISTRIBUÍDO PERFEITAMENTE
    ═════════════════════════════════════════════════════════════════════════ */
